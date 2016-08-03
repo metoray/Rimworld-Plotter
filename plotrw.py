@@ -39,8 +39,6 @@ root = tree.getroot()
 image_bytes = decode(root.find("terrainGrid").find("terrainGridCompressed").text)
 
 size = root.find("mapInfo").find("size").text[1:-1]
-width, _, height = size.split(",")
-width = int(width)
-height = int(height)
+width, _, height = map(int, size.split(","))
 
 show_map(image_bytes,width,height)
